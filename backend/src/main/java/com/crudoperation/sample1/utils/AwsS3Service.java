@@ -9,14 +9,14 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 @Service
 public class AwsS3Service {
-    private final String bucketName = "phegon-hotel-images";
-//    private final String bucketName = "my.hotel.images";
+    private final String bucketName = "aws.image.store.2025";
 
     @Value("${aws.s3.access.key}")
     private String awsS3AccessKey;
@@ -24,7 +24,7 @@ public class AwsS3Service {
     @Value("${aws.s3.secret.key}")
     private String awsS3SecretKey;
 
-    public String saveImageToS3() throws IOException {
+    public String saveImageToS3(MultipartFile photo) throws IOException {
         String s3LocationImage = null;
 
         try {
