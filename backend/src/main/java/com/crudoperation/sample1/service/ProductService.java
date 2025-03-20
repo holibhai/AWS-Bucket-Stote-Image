@@ -20,8 +20,8 @@ public class ProductService {
     private AwsS3Service awsS3Service;
 
     public Product add(Product product, MultipartFile file) throws IOException {
-        if(file.isEmpty()) {
-            String imageUrl= awsS3Service.saveImageToS3();
+        if(!file.isEmpty()) {
+            String imageUrl= awsS3Service.saveImageToS3(file);
             product.setImageUrl(imageUrl);
         }
         return productRepo.save(product);
