@@ -25,12 +25,9 @@ public class AwsS3Service {
     private String awsS3SecretKey;
 
     public String saveImageToS3(MultipartFile photo) throws IOException {
-        String s3LocationImage = null;
-
         try {
-
             String s3Filename = photo.getOriginalFilename();
-            System.out.println(s3Filename);
+            System.out.println("Uploading file: " + s3Filename);
 
             BasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsS3AccessKey, awsS3SecretKey);
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
@@ -41,17 +38,18 @@ public class AwsS3Service {
             InputStream inputStream = photo.getInputStream();
 
             ObjectMetadata metadata = new ObjectMetadata();
-            metadata.setContentType("image/jpg");
-            metadata.setContentLength(photo.getSize());  // Get the size of the file and set it
-
+            metadata.setContentType(photo.getContentType()); 
+            metadata.setContentLength(photo.getSize());
 
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, s3Filename, inputStream, metadata);
             s3Client.putObject(putObjectRequest);
-            return "https://" + bucketName + ".s3.amazonaws.com/" + s3Filename;
+
+            
+            return "https://"+"s3.eu-north-1.amazonaws.com/"+ bucketName +"/"+ s3Filename;
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new IOException("Unable to upload image to s3 bucket" + e.getMessage());
+            throw new IOException("Unable to upload image to S3 bucket: " + e.getMessage());
         }
     }
 }
