@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/product")
+@CrossOrigin(origins = "http://localhost:3001")
 public class ProductController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class ProductController {
         return productService.add(product,file);
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public List<Product> getProduct(){
         return productService.get();
     }
