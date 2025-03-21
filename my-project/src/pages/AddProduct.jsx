@@ -119,7 +119,7 @@ const AddProduct = () => {
                 name="productName"
                 onChange={handleChange}
                 className="mt-2 block w-full border border-gray-300 p-2 rounded-lg"
-                placeholder="Enter country"
+                placeholder="Enter product name"
                 required
               />
             </div>
