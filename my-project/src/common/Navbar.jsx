@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="sticky top-0">
           <nav className="flex justify-between items-center p-8 ">
             <div>
-              <h1 className="text-2xl font-bold text-gray-700">AWS-IMAGE-<span className="text-blue-600">STORAGE</span></h1>
+              <h1 className="text-2xl font-bold text-gray-700">AWS-s3-Bucket-Image-<span className="text-blue-600">Store</span></h1>
             </div>
             <ul className="flex justify-center items-center gap-10 text-gray-700">
               <li className="hover:text-blue-500 transition-all">

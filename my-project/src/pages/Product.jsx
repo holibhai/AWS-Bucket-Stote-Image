@@ -45,7 +45,7 @@ const Product = ({ product,index }) => {
         </h2>
 
         <div className="text-gray-500 mb-2">
-          <p className="text-sm">Country: {product.imageUrl}</p>
+          <p className="text-sm">Country: {product.countryl}</p>
           <div className="flex justify-between items-center">
             <p className="text-xl font-bold text-blue-600 mt-2">
               ${product.price}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import p from "../assets/g-4.jpg";
+import p from "../assets/rear-view-programmer-working-all-night-long_1098-18697.avif";
 import axios from "axios";
 
 
@@ -134,7 +134,7 @@ const AddProduct = () => {
           </form>
         </div>
         <div className="p-5">
-                {/* <img src={p} alt="" className="w-full h-full object-cover" /> */}
+                <img src={p} alt="" className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
